@@ -1,0 +1,47 @@
+# Ignorer le dossier node_modules
+node_modules/
+
+# Ignorer les dossiers de construction
+dist/
+build/
+
+# Ignorer les fichiers de configuration d'éditeurs/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignorer les fichiers de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorer les fichiers générés par Webpack
+*.bundle.js
+
+# Ignorer les fichiers de cache
+*.cache/
+.cache-loader/
+.pnp
+.pnp.js
+
+# Ignorer les fichiers de configuration spécifiques à l'environnement
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignorer les fichiers temporaires créés par le système d'exploitation
+.DS_Store
+Thumbs.db
+
+# Ignorer les fichiers générés lors du développement TypeScript
+*.tsbuildinfo
+
+# Ignorer les fichiers de dépendances externes
+package-lock.json
+yarn.lock
+
+# Ignorer les fichiers temporaires de la documentation
+docs/

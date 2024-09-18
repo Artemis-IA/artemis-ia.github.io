@@ -153,60 +153,83 @@
     </div>
   </footer>
 
-  <!-- Scripts pour charger Gemini Nano et l'interface de chat Gradio -->
-  <script>
-    async function main() {
-      if (!window.WebAssembly) {
-        alert("Votre navigateur ne supporte pas WebAssembly. Veuillez utiliser un navigateur moderne comme Chrome ou Firefox.");
-        return;
+<!-- Scripts pour charger Gemini Nano et l'interface de chat Gradio -->
+<script>
+  async function main() {
+    if (!window.WebAssembly) {
+      console.error("Votre navigateur ne supporte pas WebAssembly.");
+      alert("Votre navigateur ne supporte pas WebAssembly. Veuillez utiliser un navigateur moderne comme Chrome ou Firefox.");
+      return;
+    }
+
+    try {
+      // Afficher un message de chargement
+      const gradioApp = document.getElementById('gradio-app');
+      if (gradioApp) {
+        gradioApp.innerHTML = 'Chargement du modèle...';
       }
 
-      // Afficher un message de chargement
-      document.getElementById('gradio-app').innerHTML = 'Chargement du modèle...';
-
-      try {
-        // Charger le modèle Gemini Nano
-        const model = await window.transformers.AutoModelForCausalLM.fromPretrained('Xenova/gemini-nano', {
-          progress_callback: (loaded, total) => {
-            const percent = Math.round((loaded / total) * 100);
-            document.getElementById('gradio-app').innerHTML = `Chargement du modèle... ${percent}%`;
+      // Charger le modèle Gemini Nano avec gestion des erreurs
+      console.log("Début du chargement du modèle Gemini Nano...");
+      const model = await window.transformers.AutoModelForCausalLM.fromPretrained('Xenova/gemini-nano', {
+        progress_callback: (loaded, total) => {
+          const percent = Math.round((loaded / total) * 100);
+          if (gradioApp) {
+            gradioApp.innerHTML = `Chargement du modèle... ${percent}%`;
           }
-        });
-        const tokenizer = await window.transformers.AutoTokenizer.fromPretrained('Xenova/gemini-nano');
+        }
+      });
+      console.log("Modèle chargé avec succès.");
+      
+      const tokenizer = await window.transformers.AutoTokenizer.fromPretrained('Xenova/gemini-nano');
+      console.log("Tokenizer chargé avec succès.");
 
-        // Préparer les réponses prédéfinies (enrichies)
+      // Fonction de prédiction
+      async function predict(inputText) {
+        const lowerInput = inputText.toLowerCase().trim();
+
+        // Vérification des réponses prédéfinies
         const predefinedAnswers = {
           "quelle est votre expérience": "J'ai travaillé en tant qu'ingénieur IA chez XYZ Company depuis 2020.",
-          "quelles sont vos compétences": "Je maîtrise Python, le Machine Learning, le Deep Learning, et la Computer Vision.",
+          "quelles sont vos compétences": "Je maîtrise Python, Machine Learning, Deep Learning, et Computer Vision.",
           "où avez-vous étudié": "J'ai étudié à l'ISEN Brest, en partenariat avec Simplon.co.",
         };
 
-        // Définir la fonction de prédiction
-        async function predict(inputText) {
-          const lowerInput = inputText.toLowerCase().trim();
-          if (predefinedAnswers[lowerInput]) {
-            return predefinedAnswers[lowerInput];
-          }
-
-          const inputIds = tokenizer.encode(inputText, { add_special_tokens: true });
-          const output = await model.generate(inputIds.input_ids, { max_new_tokens: 50, do_sample: true });
-          return tokenizer.decode(output[0], { skip_special_tokens: true });
+        if (predefinedAnswers[lowerInput]) {
+          return predefinedAnswers[lowerInput];
         }
 
-        const app = new gradio.ChatInterface(predict, {
-          description: "Posez une question à l'assistant virtuel.",
-          title: "Assistant Virtuel",
-          theme: "default",
-        });
-
-        app.launch("#gradio-app");
-      } catch (error) {
-        console.error("Erreur lors du chargement du modèle :", error);
-        document.getElementById('gradio-app').innerHTML = 'Erreur de chargement du modèle.';
+        // Traitement avec le modèle
+        try {
+          console.log("Encodage du texte : ", inputText);
+          const inputIds = tokenizer.encode(inputText, { add_special_tokens: true });
+          const output = await model.generate(inputIds.input_ids, { max_new_tokens: 50, do_sample: true });
+          const response = tokenizer.decode(output[0], { skip_special_tokens: true });
+          console.log("Réponse générée : ", response);
+          return response;
+        } catch (error) {
+          console.error("Erreur lors de la génération de la réponse :", error);
+          return "Désolé, une erreur s'est produite lors de la génération de la réponse.";
+        }
       }
-    }
 
-    main();
-  </script>
+      // Créer l'interface de chat avec Gradio
+      const app = new gradio.ChatInterface(predict, {
+        description: "Posez une question à l'assistant virtuel.",
+        title: "Assistant Virtuel",
+        theme: "default",
+      });
+
+      app.launch("#gradio-app");
+
+    } catch (error) {
+      console.error("Erreur lors du chargement du modèle ou du tokenizer :", error);
+      document.getElementById('gradio-app').innerHTML = 'Erreur de chargement du modèle.';
+    }
+  }
+
+  main();
+</script>
+
 </body>
 </html>
