@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "es6",
+    "module": "none",
     "lib": ["dom", "es6"],
     "allowJs": true,
     "outDir": "./dist",

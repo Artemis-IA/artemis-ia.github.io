@@ -2,28 +2,26 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Mon CV Interactif avec Gemini Nano et Gradio</title>
+  <title>Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Feuille de style compilée avec Tailwind CSS -->
   <link rel="stylesheet" href="dist/styles.css">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D6B3QV4RPK"></script>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D6B3QV4RPK');
-</script>
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6B3QV4RPK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-XXXXXXXXX-X');
-  </script> -->
+    gtag('config', 'G-D6B3QV4RPK');
+  </script>
+
+  <!-- Inclusion des bibliothèques nécessaires -->
+  <!-- transformers.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js"></script>
+
+  <!-- gradio-lite -->
+  <script src="https://unpkg.com/@gradio/lite@4.43.0"></script>
 </head>
 <body class="bg-white text-gray-900">
 
@@ -139,6 +137,7 @@
   </footer>
 
   <!-- Scripts -->
+  <!-- Votre script compilé -->
   <script src="dist/app.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
-import { AutoTokenizer, AutoModelForCausalLM } from '@xenova/transformers';
-import { ChatInterface } from '@gradio/lite';
+// Accéder aux classes via les variables globales
+const { AutoTokenizer, AutoModelForCausalLM } = transformers;
+const { ChatInterface } = gradio;
 
 // Vérifier le support de WebAssembly
 if (!('WebAssembly' in window)) {

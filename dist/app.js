@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,8 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { AutoTokenizer, AutoModelForCausalLM } from '@xenova/transformers';
-import { ChatInterface } from '@gradio/lite';
+// Accéder aux classes via les variables globales
+const { AutoTokenizer, AutoModelForCausalLM } = transformers;
+const { ChatInterface } = gradio;
 // Vérifier le support de WebAssembly
 if (!('WebAssembly' in window)) {
     alert("Votre navigateur ne supporte pas WebAssembly. Veuillez utiliser un navigateur moderne comme Chrome ou Firefox.");
