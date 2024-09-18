@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon CV Interactif avec Gemini Nano et Gradio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Feuille de style compilée avec Tailwind CSS -->
+  <link rel="stylesheet" href="dist/styles.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D6B3QV4RPK"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D6B3QV4RPK');
+</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+  </script> -->
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- En-tête du CV -->
+  <header class="text-center py-12">
+    <div class="container mx-auto">
+      <img src="assets/images/profile.jpg" alt="Photo de profil d'Ibrahim Mohammad" class="w-32 h-32 rounded-full mx-auto mb-4">
+      <h1 class="text-4xl font-bold">Ibrahim Mohammad</h1>
+      <h2 class="text-2xl font-light text-gray-700 mt-2">Développeur en Intelligence Artificielle - MLOPS</h2>
+      <p class="mt-4">
+        <a href="mailto:ibrahim.mohammad@example.com" aria-label="Envoyer un email à Ibrahim Mohammad" class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600">ibrahim.mohammad@example.com</a> |
+        <a href="https://www.linkedin.com/in/ibrahim-mohammad/" aria-label="Profil LinkedIn d'Ibrahim Mohammad" class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600">LinkedIn</a> |
+        <a href="https://github.com/Artemis-IA" aria-label="Profil GitHub d'Ibrahim Mohammad" class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600">GitHub</a>
+      </p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="bg-gray-200 mb-10" aria-label="Navigation principale">
+    <ul class="container mx-auto flex justify-center flex-wrap">
+      <li class="mx-4 my-2"><a href="#profil" aria-label="Aller à la section Profil" class="text-gray-900 font-semibold hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600">Profil</a></li>
+      <li class="mx-4 my-2"><a href="#experience" aria-label="Aller à la section Expérience" class="text-gray-900 font-semibold hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600">Expérience</a></li>
+      <li class="mx-4 my-2"><a href="#formation" aria-label="Aller à la section Formation" class="text-gray-900 font-semibold hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600">Formation</a></li>
+      <li class="mx-4 my-2"><a href="#competences" aria-label="Aller à la section Compétences" class="text-gray-900 font-semibold hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600">Compétences</a></li>
+      <li class="mx-4 my-2"><a href="#projets" aria-label="Aller à la section Projets" class="text-gray-900 font-semibold hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600">Projets</a></li>
+      <li class="mx-4 my-2"><a href="#contact" aria-label="Aller à la section Contact" class="text-gray-900 font-semibold hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenu principal -->
+  <main class="container mx-auto">
+
+    <section id="profil" class="mb-16">
+      <h3 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Profil</h3>
+      <p>Ingénieur en intelligence artificielle avec une expérience dans le développement de modèles de machine learning et de solutions innovantes.</p>
+    </section>
+
+    <section id="experience" class="mb-16">
+      <h3 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Expérience Professionnelle</h3>
+
+      <article class="mb-8">
+        <h4 class="text-xl font-semibold text-blue-600">Ingénieur IA chez XYZ Company</h4>
+        <span class="text-sm text-gray-600">Janvier 2020 - Présent</span>
+        <ul class="list-disc list-inside mt-2">
+          <li>Développement de modèles de deep learning pour la reconnaissance d'images.</li>
+          <li>Mise en place de pipelines de données pour le traitement de grandes quantités d'informations.</li>
+          <li>Collaboration avec des équipes multidisciplinaires pour intégrer les solutions IA.</li>
+        </ul>
+      </article>
+
+      <!-- Ajoutez d'autres expériences ici -->
+    </section>
+
+    <section id="formation" class="mb-16">
+      <h3 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Formation</h3>
+
+      <article class="mb-8">
+        <h4 class="text-xl font-semibold text-blue-600">Master en Intelligence Artificielle</h4>
+        <span class="text-sm text-gray-600">2018</span>
+        <p>Université de Technologie.</p>
+      </article>
+
+      <!-- Ajoutez d'autres formations ici -->
+    </section>
+
+    <section id="competences" class="mb-16">
+      <h3 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Compétences</h3>
+      <ul class="list-disc list-inside columns-2">
+        <li>Python</li>
+        <li>Machine Learning</li>
+        <li>Deep Learning</li>
+        <li>Traitement du Langage Naturel</li>
+        <li>Computer Vision</li>
+        <!-- Ajoutez d'autres compétences -->
+      </ul>
+    </section>
+
+    <section id="projets" class="mb-16">
+      <h3 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Projets</h3>
+
+      <article class="mb-8">
+        <h4 class="text-xl font-semibold text-blue-600">Développement d'un Chatbot IA</h4>
+        <p>Création d'un chatbot intelligent capable de répondre aux questions des utilisateurs de manière naturelle.</p>
+        <p><a href="https://github.com/Artemis-IA/chatbot-project" aria-label="Voir le projet de Chatbot IA sur GitHub" class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600">Voir le projet</a></p>
+      </article>
+
+      <!-- Ajoutez d'autres projets ici -->
+    </section>
+
+    <!-- Conteneur pour l'application Gradio -->
+    <section id="assistant" class="mb-16">
+      <h3 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Assistant Virtuel</h3>
+      <div id="gradio-app"></div>
+      <!-- Boutons supplémentaires -->
+      <div class="assistant-buttons mt-4 flex gap-4">
+        <button id="clear-history" aria-label="Effacer l'historique des conversations" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600">Effacer l'historique</button>
+        <button id="download-cv" aria-label="Télécharger le CV en PDF" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600">Télécharger le CV en PDF</button>
+      </div>
+    </section>
+
+    <section id="contact" class="mb-16">
+      <h3 class="text-2xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Contact</h3>
+      <p>Pour me contacter, veuillez envoyer un email à <a href="mailto:ibrahim.mohammad@example.com" aria-label="Envoyer un email à Ibrahim Mohammad" class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600">ibrahim.mohammad@example.com</a>.</p>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="bg-gray-200 py-4 text-center">
+    <div class="container mx-auto">
+      <p class="text-gray-600 text-sm">&copy; 2023 Ibrahim Mohammad. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="dist/app.js"></script>
+</body>
+</html>

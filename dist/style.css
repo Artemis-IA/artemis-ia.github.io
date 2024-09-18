@@ -1,0 +1,212 @@
+/* Réinitialisation des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Typographie et couleurs de base */
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: #222; /* Couleur du texte plus foncée pour un meilleur contraste */
+    background-color: #fff;
+    line-height: 1.6;
+    font-size: 100%; /* Permet le redimensionnement du texte */
+  }
+  
+  /* Conteneur central pour fixer la largeur */
+  .container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Style de l'en-tête */
+  header {
+    text-align: center;
+    padding: 3em 0; /* Utiliser des unités relatives */
+  }
+  
+  header .profile-pic {
+    width: 9.375em; /* 150px / 16 */
+    height: 9.375em;
+    border-radius: 50%;
+    margin-bottom: 1.25em; /* 20px / 16 */
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #000; /* Texte noir pour un meilleur contraste */
+  }
+  
+  header h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #333; /* Couleur plus foncée pour le sous-titre */
+    margin-top: 0.625em; /* 10px / 16 */
+  }
+  
+  header p a {
+    color: #0056b3; /* Couleur de lien avec meilleur contraste */
+    text-decoration: none;
+  }
+  
+  header p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Barre de navigation */
+  nav {
+    background-color: #e6e6e6; /* Couleur de fond plus foncée pour le contraste */
+    margin-bottom: 2.5em; /* 40px / 16 */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin: 0.625em 0.9375em; /* 10px / 16, 15px / 16 */
+  }
+  
+  nav ul li a {
+    color: #222; /* Couleur du texte plus foncée */
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  nav ul li a:hover {
+    color: #0056b3;
+  }
+  
+  /* Sections principales */
+  main section {
+    margin-bottom: 3.75em; /* 60px / 16 */
+  }
+  
+  main h3 {
+    font-size: 1.8em;
+    margin-bottom: 1.25em; /* 20px / 16 */
+    border-bottom: 0.125em solid #0056b3; /* 2px / 16 */
+    padding-bottom: 0.625em; /* 10px / 16 */
+    color: #000; /* Couleur du texte plus foncée */
+  }
+  
+  .job, .education, .project {
+    margin-bottom: 1.875em; /* 30px / 16 */
+  }
+  
+  .job h4, .education h4, .project h4 {
+    font-size: 1.4em;
+    color: #0056b3;
+  }
+  
+  .date {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 0.625em; /* 10px / 16 */
+  }
+  
+  .skills {
+    list-style: disc inside;
+    columns: 2;
+  }
+  
+  .skills li {
+    margin-bottom: 0.3125em; /* 5px / 16 */
+  }
+  
+  /* Styles pour le chatbot */
+  #assistant {
+    margin-bottom: 3.75em; /* 60px / 16 */
+  }
+  
+  #gradio-app {
+    margin-top: 1.25em; /* 20px / 16 */
+  }
+  
+  .assistant-buttons {
+    margin-top: 0.625em; /* 10px / 16 */
+    display: flex;
+    gap: 0.625em; /* 10px / 16 */
+  }
+  
+  .assistant-buttons button {
+    padding: 0.625em 0.9375em; /* 10px / 16, 15px / 16 */
+    font-size: 1em;
+    background-color: #0056b3; /* Couleur du bouton avec meilleur contraste */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3125em; /* 5px / 16 */
+  }
+  
+  .assistant-buttons button:hover {
+    background-color: #004494; /* Couleur au survol avec bon contraste */
+  }
+  
+  /* Pied de page */
+  footer {
+    background-color: #e6e6e6;
+    padding: 1.25em 0; /* 20px / 16 */
+    text-align: center;
+  }
+  
+  footer p {
+    color: #555;
+    font-size: 0.9em;
+  }
+  
+  /* Liens */
+  a {
+    color: #0056b3;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Focus Visible */
+  a:focus, button:focus {
+    outline: 0.125em solid #0056b3; /* 2px / 16 */
+    outline-offset: 0.125em;
+  }
+  
+  /* Responsivité */
+  @media (max-width: 37.5em) { /* 600px / 16 */
+    nav ul {
+      flex-direction: column;
+    }
+  
+    .skills {
+      columns: 1;
+    }
+  
+    .assistant-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  
+  /* Animations personnalisées */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  .animate__animated.animate__fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+  }
+  

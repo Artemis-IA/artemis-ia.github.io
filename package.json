@@ -1,0 +1,33 @@
+{
+  "name": "artemis-ia-portfolio",
+  "version": "1.0.0",
+  "description": "CV interactif avec assistant virtuel",
+  "main": "dist/app.js",
+  "scripts": {
+    "build:ts": "tsc",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "build": "npm run build:ts && npm run build:css",
+    "start": "npm run build && live-server"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.3.0",
+    "@gradio/lite": "^4.43.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.9.5"
+  },
+  "author": "Ibrahim Mohammad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artemis-IA/artemis-ia.github.io.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Artemis-IA/artemis-ia.github.io/issues"
+  },
+  "homepage": "https://github.com/Artemis-IA/artemis-ia.github.io#readme"
+}
