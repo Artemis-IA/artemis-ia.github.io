@@ -52,13 +52,16 @@ async function main() {
       }
 
       // Sinon, utiliser le modèle pour générer une réponse
-      const inputIds = tokenizer.encode(inputText, { addSpecialTokens: true }).inputIds;
+      const encoded = tokenizer.encode(inputText, { add_special_tokens: true });
+      const inputIds = encoded.input_ids;
+
       const output = await model.generate(inputIds, {
         max_new_tokens: 50,
         do_sample: true,
         temperature: 0.7,
       });
-      const decodedText = tokenizer.decode(output[0], { skipSpecialTokens: true });
+
+      const decodedText = tokenizer.decode(output[0], { skip_special_tokens: true });
 
       // Sauvegarder la conversation
       saveConversation(inputText, decodedText);
